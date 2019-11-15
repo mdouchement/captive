@@ -16,7 +16,7 @@ RUN go mod download
 RUN go build -ldflags "-s -w" -o captive .
 
 # final stage
-FROM alpine
+FROM scratch
 MAINTAINER mdouchement
 
 COPY --from=build-env /captive/captive /usr/local/bin/
