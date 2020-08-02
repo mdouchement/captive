@@ -11,20 +11,12 @@ import (
 )
 
 func main() {
+	http.HandleFunc("/ncsi.txt", func(w http.ResponseWriter, r *http.Request) {
+		trace(w, r)
+		fmt.Fprintf(w, "Microsoft NCSI")
+	})
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		requestID := strconv.FormatInt(time.Now().UnixNano(), 36)
-
-		log.Printf("[%s] %s %s", requestID, r.Method, r.RequestURI)
-		log.Printf("[%s] From %s", requestID, r.RemoteAddr)
-		log.Printf("[%s] Content-Length %d", requestID, r.ContentLength)
-
-		headers, err := json.Marshal(r.Header)
-		if err != nil {
-			log.Printf("[%s] %v", requestID, r.Header)
-		} else {
-			log.Printf("[%s] %s", requestID, headers)
-		}
-
+		trace(w, r)
 		fmt.Fprintf(w, "<HTML><HEAD><TITLE>Success</TITLE></HEAD><BODY>Success</BODY></HTML>")
 	})
 
@@ -34,4 +26,19 @@ func main() {
 	}
 	log.Println("Listening on", listen)
 	log.Fatal(http.ListenAndServe(listen, nil))
+}
+
+func trace(w http.ResponseWriter, r *http.Request) {
+	requestID := strconv.FormatInt(time.Now().UnixNano(), 36)
+
+	log.Printf("[%s] %s %s", requestID, r.Method, r.RequestURI)
+	log.Printf("[%s] From %s", requestID, r.RemoteAddr)
+	log.Printf("[%s] Content-Length %d", requestID, r.ContentLength)
+
+	headers, err := json.Marshal(r.Header)
+	if err != nil {
+		log.Printf("[%s] %v", requestID, r.Header)
+	} else {
+		log.Printf("[%s] %s", requestID, headers)
+	}
 }
