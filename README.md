@@ -6,10 +6,6 @@ This a basic webserver used to fake Network Health Check like the following endp
 - `www.msftncsi.com`
   - You should redirect `dns.msftncsi.com` to a trusted DNS server
 
-## Requirements
-
-- Golang 1.13.x (Go Modules)
-
 ## License
 
 **MIT**

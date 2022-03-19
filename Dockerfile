@@ -3,6 +3,7 @@ FROM golang:alpine as build-env
 MAINTAINER mdouchement
 
 RUN apk upgrade
+RUN apk add --update --no-cache git curl
 
 WORKDIR /captive
 
