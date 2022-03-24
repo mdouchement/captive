@@ -15,6 +15,10 @@ func main() {
 		trace(w, r)
 		fmt.Fprintf(w, "Microsoft NCSI")
 	})
+	http.HandleFunc("/connecttest.txt", func(w http.ResponseWriter, r *http.Request) {
+		trace(w, r)
+		fmt.Fprintf(w, "Microsoft Connect Test")
+	})
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		trace(w, r)
 		fmt.Fprintf(w, "<HTML><HEAD><TITLE>Success</TITLE></HEAD><BODY>Success</BODY></HTML>")
