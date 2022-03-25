@@ -3,8 +3,8 @@
 This a basic webserver used to fake Network Health Check like the following endpoints:
 - `captive.apple.com`
 - `detectportal.firefox.com`
-- `www.msftncsi.com/ncsi.txt`
-- `www.msftncsi.com/connecttest.txt`
+- `www.msftncsi.com`
+- `www.msftconnecttest.com`
   - You should redirect `dns.msftncsi.com` to a trusted DNS server
 
 ## License
