@@ -5,6 +5,7 @@ This a basic webserver used to fake Network Health Check like the following endp
 - `detectportal.firefox.com`
 - `www.msftncsi.com`
 - `www.msftconnecttest.com`
+- `ipv6.msftconnecttest.com`
   - You should redirect `dns.msftncsi.com` to a trusted DNS server
 
 ## License
